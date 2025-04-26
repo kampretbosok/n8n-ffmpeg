@@ -10,7 +10,7 @@ services:
     plan: starter  # $7/month plan
     region: oregon
     # https://github.com/n8n-io/n8n/releases
-    branch: refs/tags/n8n%401.89.2  # Correct tag syntax!
+    branch: "n8n@1.89.2"  # Correct tag syntax!
     
     # Build/Start Commands
     buildCommand: |
