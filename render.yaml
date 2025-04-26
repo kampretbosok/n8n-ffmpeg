@@ -13,10 +13,9 @@ services:
     
     # Build/Start Commands
     buildCommand: |
-      pnpm add -g turbo &&
-      pnpm config set ignore-scripts true &&
+      pnpm add turbo@latest --prod &&
       pnpm install --frozen-lockfile --prod &&
-      turbo run build --filter=./packages/cli
+      pnpm turbo run build --filter=./packages/cli
     startCommand: pnpm run start
     
      # Environment Variables
