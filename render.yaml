@@ -1,0 +1,62 @@
+# n8n Render Blueprint v1.90.0
+# Configuración optimizada para la versión estable 1.90.0
+version: "1"
+
+services:
+  - type: web
+    name: n8n-tttn-v2
+    runtime: node
+    repo: https://github.com/n8n-io/n8n
+    plan: free
+    region: oregon
+    branch: 1.90.0  # Tag específico de la versión
+    
+    # Comandos optimizados para v1.90.0
+    buildCommand: |
+      pnpm install --frozen-lockfile --prod
+      pnpm run build
+    startCommand: pnpm run start
+    
+    # Variables de entorno críticas (actualizadas para 1.90.0)
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0  # Verificado como compatible
+      - key: N8N_USER_FOLDER
+        value: /opt/render/.n8n
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_PORT
+        value: "443"
+      - key: N8N_HOST
+        value: n8n-tttn-v2.onrender.com
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-tttn-v2.onrender.com
+      - key: GENERIC_TIMEZONE
+        value: America/Los_Angeles
+      
+      # Nuevas variables recomendadas en 1.90.0
+      - key: N8N_EXECUTIONS_MODE
+        value: "queue"  # Mejor manejo de ejecuciones
+      - key: N8N_VERSION_NOTIFICATIONS_ENABLED
+        value: "false"  # Desactiva notificaciones de versión
+      - key: N8N_DIAGNOSTICS_ENABLED
+        value: "false"  # Reduce telemetría
+      - key: N8N_LOG_OUTPUT
+        value: "console"  # Formato de logs simplificado
+    
+    # Almacenamiento persistente (requerido para workflows)
+    disk:
+      name: n8n-data
+      mountPath: /opt/render/.n8n
+      sizeGB: 1  # Mínimo para free plan
+    
+    # Configuración técnica
+    healthCheckPath: /healthz  # Endpoint de salud de n8n
+    autoDeploy: false  # Manual para control de versiones
+    failover: false  # No disponible en free plan
+    numInstances: 1   # Límite del plan free
+
+    # Opcional: Configuración de escalado (si cambias a paid plan)
+    # scaling:
+    #   minInstances: 1
+    #   maxInstances: 1
