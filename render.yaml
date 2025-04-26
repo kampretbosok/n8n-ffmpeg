@@ -13,9 +13,9 @@ services:
     
     # Build/Start Commands
     buildCommand: |
-      pnpm add turbo@latest --prod &&
-      pnpm install --frozen-lockfile --prod &&
-      pnpm turbo run build --filter=./packages/cli
+      cd packages/cli && \
+      pnpm install --frozen-lockfile --prod && \
+      pnpm run build
     startCommand: pnpm run start
     
      # Environment Variables
