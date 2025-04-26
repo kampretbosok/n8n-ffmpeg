@@ -36,7 +36,7 @@ services:
       
       # New recommended variables in 1.90.0
       - key: N8N_EXECUTIONS_MODE
-        value: "queue"  # Better execution handling
+        value: "queue"  # Prevents crashes under load
       - key: N8N_VERSION_NOTIFICATIONS_ENABLED
         value: "false"  # Disables version notifications
       - key: N8N_DIAGNOSTICS_ENABLED
@@ -53,6 +53,3 @@ services:
     # Infrastructure
     healthCheckPath: /healthz  # n8n health endpoint
     autoDeploy: false  # Manual for version control
-    scaling:
-      minInstances: 1  # Avoid cold starts
-      maxInstances: 1  # Starter plan limit
