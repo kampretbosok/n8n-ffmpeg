@@ -13,15 +13,18 @@ services:
     
     # Build/Start Commands
     buildCommand: |
+      pnpm add -g turbo &&
       pnpm config set ignore-scripts true &&
       pnpm install --frozen-lockfile --prod &&
-      pnpm run build
+      turbo run build --filter=./packages/cli
     startCommand: pnpm run start
     
      # Environment Variables
     envVars:
       - key: NODE_VERSION
         value: 22.14.0  # Verified as compatible
+      - key: NODE_ENV
+        value: production
       - key: N8N_USER_FOLDER
         value: /opt/render/.n8n
       - key: N8N_PROTOCOL
