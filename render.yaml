@@ -9,7 +9,8 @@ services:
     repo: https://github.com/n8n-io/n8n
     plan: starter  # $7/month plan
     region: oregon
-    branch: refs/tags/n8n@1.90.0  # Correct tag syntax!
+    # https://github.com/n8n-io/n8n/releases
+    branch: refs/tags/n8n@1.89.2  # Correct tag syntax!
     
     # Build/Start Commands
     buildCommand: |
