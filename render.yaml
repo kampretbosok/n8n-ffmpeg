@@ -1,5 +1,5 @@
 # n8n Render Blueprint v1.90.0
-# Configuración optimizada para la versión estable 1.90.0
+# Optimized configuration for stable version 1.90.0
 version: "1"
 
 services:
@@ -9,18 +9,18 @@ services:
     repo: https://github.com/n8n-io/n8n
     plan: free
     region: oregon
-    branch: 1.90.0  # Tag específico de la versión
+    branch: 1.90.0  # Specific version tag
     
-    # Comandos optimizados para v1.90.0
+    # Build/Start Commands
     buildCommand: |
       pnpm install --frozen-lockfile --prod
       pnpm run build
     startCommand: pnpm run start
     
-    # Variables de entorno críticas (actualizadas para 1.90.0)
+     # Environment Variables
     envVars:
       - key: NODE_VERSION
-        value: 22.14.0  # Verificado como compatible
+        value: 22.14.0  # Verified as compatible
       - key: N8N_USER_FOLDER
         value: /opt/render/.n8n
       - key: N8N_PROTOCOL
@@ -34,29 +34,27 @@ services:
       - key: GENERIC_TIMEZONE
         value: America/Los_Angeles
       
-      # Nuevas variables recomendadas en 1.90.0
+      # New recommended variables in 1.90.0
       - key: N8N_EXECUTIONS_MODE
-        value: "queue"  # Mejor manejo de ejecuciones
+        value: "queue"  # Better execution handling
       - key: N8N_VERSION_NOTIFICATIONS_ENABLED
-        value: "false"  # Desactiva notificaciones de versión
+        value: "false"  # Disables version notifications
       - key: N8N_DIAGNOSTICS_ENABLED
-        value: "false"  # Reduce telemetría
+        value: "false"  # Reduces telemetry
       - key: N8N_LOG_OUTPUT
-        value: "console"  # Formato de logs simplificado
+        value: "console"  # Simplified log format
     
-    # Almacenamiento persistente (requerido para workflows)
+    # Persistent storage (required for workflows)
     disk:
       name: n8n-data
       mountPath: /opt/render/.n8n
-      sizeGB: 1  # Mínimo para free plan
+      sizeGB: 1  # Minimum for free plan
     
-    # Configuración técnica
-    healthCheckPath: /healthz  # Endpoint de salud de n8n
-    autoDeploy: false  # Manual para control de versiones
-    failover: false  # No disponible en free plan
-    numInstances: 1   # Límite del plan free
+    # Technical configuration
+    healthCheckPath: /healthz  # n8n health endpoint
+    autoDeploy: false  # Manual for version control
 
-    # Opcional: Configuración de escalado (si cambias a paid plan)
+    # If you upgrade to a paid plan later, use these fields:
     # scaling:
     #   minInstances: 1
     #   maxInstances: 1
