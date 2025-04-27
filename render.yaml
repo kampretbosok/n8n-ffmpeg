@@ -1,60 +1,23 @@
-# n8n Render Blueprint v1.90.0
-# Optimized configuration for stable version 1.90.0
 version: "1"
 
 services:
   - type: web
     name: n8n-v2
-    runtime: node
-    repo: https://github.com/n8n-io/n8n
-    plan: starter  # $7/month plan
-    region: oregon
-    branch: "n8n@1.90.0" # Try pre-release version for build fix
-    
-    # Build/Start Commands
-    buildCommand: |
-      cd packages/cli && \
-      pnpm install --frozen-lockfile && \
-      pnpm run build
-    startCommand: pnpm run start
-    
-     # Environment Variables
+    runtime: docker
+    image:
+      url: docker.n8n.io/n8nio/n8n:1.89.2
     envVars:
-      - key: NODE_VERSION
-        value: 18.19.1  # Try older LTS Node 18 for n8n@1.89.2 stability
       - key: NODE_ENV
         value: production
       - key: N8N_USER_FOLDER
         value: /opt/render/.n8n
-      - key: N8N_PROTOCOL
-        value: https
-      - key: N8N_PORT
-        value: "443"
       - key: N8N_HOST
         value: ${RENDER_SERVICE_NAME}.onrender.com
       - key: N8N_EDITOR_BASE_URL
         value: https://${RENDER_SERVICE_NAME}.onrender.com
-      - key: GENERIC_TIMEZONE
-        value: America/Los_Angeles
-      - key: CI
-        value: "true"
-      
-      # New recommended variables in 1.90.0
-      - key: N8N_EXECUTIONS_MODE
-        value: "queue"  # Prevents crashes under load
-      - key: N8N_VERSION_NOTIFICATIONS_ENABLED
-        value: "false"  # Disables version notifications
-      - key: N8N_DIAGNOSTICS_ENABLED
-        value: "false"  # Reduces telemetry
-      - key: N8N_LOG_OUTPUT
-        value: "console"  # Simplified log format
-    
-    # Persistent Disk (1GB - can be increased later)
     disk:
-      name: disk
+      name: n8n-data
       mountPath: /opt/render/.n8n
-      sizeGB: 1  # Start with minimum (upgradable)
-    
-    # Infrastructure
-    healthCheckPath: /healthz  # n8n health endpoint
-    autoDeploy: false  # Manual for version control
+      sizeGB: 1
+    healthCheckPath: /healthz
+    autoDeploy: true
