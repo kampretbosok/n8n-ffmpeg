@@ -14,7 +14,7 @@ services:
     # Build/Start Commands
     buildCommand: |
       cd packages/cli && \
-      pnpm install --frozen-lockfile --prod && \
+      pnpm install --frozen-lockfile && \
       pnpm run build
     startCommand: pnpm run start
     
