@@ -13,9 +13,9 @@ services:
       - key: N8N_USER_FOLDER
         value: /opt/render/.n8n
       - key: N8N_HOST
-        value: ${RENDER_EXTERNAL_HOSTNAME}.onrender.com
+        sync: false
       - key: N8N_EDITOR_BASE_URL
-        value: https://${RENDER_EXTERNAL_HOSTNAME}.onrender.com
+        sync: false
     disk:
       name: disk
       mountPath: /opt/render/.n8n
