@@ -6,6 +6,8 @@ services:
     runtime: docker
     image:
       url: docker.n8n.io/n8nio/n8n:1.89.2
+    plan: free
+    region: oregon
     envVars:
       - key: NODE_ENV
         value: production
@@ -16,8 +18,8 @@ services:
       - key: N8N_EDITOR_BASE_URL
         value: https://${RENDER_SERVICE_NAME}.onrender.com
     disk:
-      name: n8n-data
+      name: disk
       mountPath: /opt/render/.n8n
       sizeGB: 1
     healthCheckPath: /healthz
-    autoDeploy: true
+    autoDeploy: false
