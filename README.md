@@ -37,6 +37,7 @@ cd n8n-render-blueprint
 | `N8N_USER_FOLDER`         | `/opt/render/.n8n`         |
 | `N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS` | `true` |
 | `N8N_RUNNERS_ENABLED`     | `true`                     |
+| `N8N_EXECUTIONS_MODE`     | `queue`                    |
 | `N8N_HOST`                | (not synced)               |
 | `N8N_EDITOR_BASE_URL`     | (not synced)               |
 

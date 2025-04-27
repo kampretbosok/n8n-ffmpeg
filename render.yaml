@@ -16,6 +16,8 @@ services:
         value: true
       - key: N8N_RUNNERS_ENABLED
         value: true
+      - key: N8N_EXECUTIONS_MODE
+        value: "queue"
       - key: N8N_HOST
         sync: false
       - key: N8N_EDITOR_BASE_URL
