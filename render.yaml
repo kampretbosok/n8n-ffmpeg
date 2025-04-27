@@ -21,7 +21,7 @@ services:
      # Environment Variables
     envVars:
       - key: NODE_VERSION
-        value: 22.14.0  # Verified as compatible
+        value: 20.11.1  # Try LTS version for compatibility with n8n@1.89.2
       - key: NODE_ENV
         value: production
       - key: N8N_USER_FOLDER
