@@ -1,13 +1,13 @@
 # 🚀 n8n Render.com Blueprint
 
-**One-click deployment for n8n v1.89.2 on Render.com**
+**One-click deployment for n8n v1.91.3 on Render.com**
 Pre-configured with production-ready settings for Free and Paid plans.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 ## 🔧 Features
 
-✅ **Optimized for n8n 1.89.2**
+✅ **Optimized for n8n 1.91.3**
 - Persistent workflows (1GB disk mount)
 - Health check endpoint (`/healthz`)
 
@@ -21,11 +21,11 @@ Pre-configured with production-ready settings for Free and Paid plans.
 ## 🛠️ Quick Start
 
 ### 1. Deploy to Render
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/your-repo/n8n-render-blueprint)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/louisjimenezp/n8n-render-blueprint)
 
 ### 2. Manual Setup
 ```bash
-git clone https://github.com/your-repo/n8n-render-blueprint.git
+git clone https://github.com/louisjimenezp/n8n-render-blueprint
 cd n8n-render-blueprint
 ```
 
