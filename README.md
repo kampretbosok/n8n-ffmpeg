@@ -41,6 +41,16 @@ cd n8n-render-blueprint
 | `N8N_HOST`                | (not synced)               |
 | `N8N_EDITOR_BASE_URL`     | (not synced)               |
 
+### Memory Configuration
+
+For optimal n8n performance, configure `NODE_OPTIONS` to use 90% of the available memory, reserving 10% for Docker overhead. Update the `NODE_OPTIONS` environment variable in your `Dockerfile` or Render configuration:
+
+```bash
+NODE_OPTIONS="--max-old-space-size=<90% of available memory in MB>"
+```
+
+When scaling between starter and standard configurations, adjust this value accordingly to ensure optimal performance.
+
 **For paid plans**: Increase disk size in `render.yaml`:
 ```yaml
 disk:
