@@ -1,13 +1,13 @@
 # 🚀 n8n Render.com Blueprint
 
-**One-click deployment for n8n v1.91.3 on Render.com**
+**One-click deployment for n8n v1.95.3 on Render.com**
 Pre-configured with production-ready settings for Free and Paid plans.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 ## 🔧 Features
 
-✅ **Optimized for n8n 1.91.3**
+✅ **Optimized for n8n 1.95.3**
 - Persistent workflows (1GB disk mount)
 - Health check endpoint (`/healthz`)
 
