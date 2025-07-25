@@ -49,7 +49,7 @@ For optimal n8n performance, configure `NODE_OPTIONS` to use 90% of the availabl
 NODE_OPTIONS="--max-old-space-size=<90% of available memory in MB>"
 ```
 
-When scaling between starter and standard configurations, adjust this value accordingly to ensure optimal performance.
+When scaling between Standard and Starter configurations (e.g. doing a downgrade), adjust this value to match the lower memory limits of the Starter plan.
 
 **For paid plans**: Increase disk size in `render.yaml`:
 ```yaml

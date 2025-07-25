@@ -5,7 +5,7 @@ services:
     name: n8n
     runtime: docker
     dockerfilePath: ./Dockerfile
-    plan: standard
+    plan: starter
     region: oregon
     envVars:
       - key: NODE_ENV
